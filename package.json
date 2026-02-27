@@ -8,10 +8,8 @@
     "check:tsgo": "tsgo --noEmit"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.130",
     "@types/node": "^20.0.0",
     "@typescript/native-preview": "latest",
-    "lodash": "^4.17.21",
     "type-fest": "^4.0.0",
     "typescript": "^5.0.0"
   }
