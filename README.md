@@ -86,8 +86,3 @@ these causes tsgo to exit without crashing:
 | Both functions in the same file | yes |
 | Recursive self-call inside each function body | yes (both must recurse) |
 | `lodash.transform` in the function body | yes |
-
-The crash is in `instantiateTypeWithAlias` → `instantiateType` → `CompositeTypeMapper.Map` →
-`getObjectTypeInstantiation` → `instantiateTypeWorker`, forming a cycle that exhausts the
-goroutine stack. `tsc` breaks this cycle with a recursion depth guard (emitting TS2589 for
-truly unbounded cases); tsgo does not appear to have an equivalent guard for this pattern.
