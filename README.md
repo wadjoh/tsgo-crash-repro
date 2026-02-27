@@ -50,39 +50,3 @@ github.com/microsoft/typescript-go/internal/checker.(*Checker).instantiateType(.
         .../checker/checker.go:21635
 ... (repeating until stack exhausted)
 ```
-
-## Minimal file (`index.ts`)
-
-```typescript
-import { camelCase, isObject, snakeCase, transform } from 'lodash'
-import { CamelCase, SnakeCase } from 'type-fest'
-
-export const camelize = <T extends {}>(obj: T): CamelCase<T> =>
-  transform(obj, (acc, value, key) => {
-    ;(acc as Record<string, any>)[camelCase(key)] = isObject(value) ? camelize(value) : value
-  })
-
-export const snakify = <T extends {}>(obj: T): SnakeCase<T> =>
-  transform(
-    obj,
-    (acc, value, key) => {
-      ;(acc as Record<string, any>)[snakeCase(key as string)] = isObject(value)
-        ? snakify(value)
-        : value
-    },
-    {} as SnakeCase<T>
-  )
-```
-
-## Narrowing notes
-
-The crash requires all of the following to be present simultaneously. Removing any one of
-these causes tsgo to exit without crashing:
-
-| Ingredient | Required |
-|---|---|
-| `CamelCase<T>` as return type on `camelize` | yes |
-| `SnakeCase<T>` as return type on `snakify` | yes |
-| Both functions in the same file | yes |
-| Recursive self-call inside each function body | yes (both must recurse) |
-| `lodash.transform` in the function body | yes |
