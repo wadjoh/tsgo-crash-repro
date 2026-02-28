@@ -15,11 +15,11 @@ importers:
         specifier: latest
         version: 7.0.0-dev.20260220.1
       type-fest:
-        specifier: ^4.0.0
-        version: 4.41.0
+        specifier: 4.38.0
+        version: 4.38.0
       typescript:
-        specifier: ^5.0.0
-        version: 5.9.3
+        specifier: 6.0.0-beta
+        version: 6.0.0-beta
 
 packages:
 
@@ -65,12 +65,12 @@ packages:
     resolution: {integrity: sha512-trYXlG98/C7Q7pqnPrKo+ksXrWqWVMncCy2x0VftD2llfL99Z//g2mpB9TmzWeKgb4d1659ESvxTowCGnzMccw==}
     hasBin: true
 
-  type-fest@4.41.0:
-    resolution: {integrity: sha512-TeTSQ6H5YHvpqVwBRcnLDCBnDOHWYu7IvGbHT6N8AOymcr9PJGjc1GTtiWZTYg0NCgYwvnYWEkVChQAr9bjfwA==}
+  type-fest@4.38.0:
+    resolution: {integrity: sha512-2dBz5D5ycHIoliLYLi0Q2V7KRaDlH0uWIvmk7TYlAg5slqwiPv1ezJdZm1QEM0xgk29oYWMCbIG7E6gHpvChlg==}
     engines: {node: '>=16'}
 
-  typescript@5.9.3:
-    resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
+  typescript@6.0.0-beta:
+    resolution: {integrity: sha512-CldZdztDpQRLM1HC6WDQjQkQN5Ub5zRau737a1diGh3lPmb9oRsaWHk1y5iqK0o7+1bNJ0oXfEGRkAogFZBL+Q==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -114,8 +114,8 @@ snapshots:
       '@typescript/native-preview-win32-arm64': 7.0.0-dev.20260220.1
       '@typescript/native-preview-win32-x64': 7.0.0-dev.20260220.1
 
-  type-fest@4.41.0: {}
+  type-fest@4.38.0: {}
 
-  typescript@5.9.3: {}
+  typescript@6.0.0-beta: {}
 
   undici-types@6.21.0: {}

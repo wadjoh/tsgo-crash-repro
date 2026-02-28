@@ -4,13 +4,13 @@
   "private": true,
   "packageManager": "pnpm@10.18.3",
   "scripts": {
-    "check:tsc": "tsc --noEmit",
-    "check:tsgo": "tsgo --noEmit"
+    "check:tsc": "tsc",
+    "check:tsgo": "tsgo"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
     "@typescript/native-preview": "latest",
-    "type-fest": "^4.0.0",
-    "typescript": "^5.0.0"
+    "type-fest": "4.38.0",
+    "typescript": "6.0.0-beta"
   }
 }
