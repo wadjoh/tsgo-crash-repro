@@ -1,20 +1,18 @@
-# tsgo crash repro: goroutine stack overflow with recursive transform and `CamelCase<T>` from type-fest
+# tsgo crash repro: goroutine stack overflow with recursive functions and `CamelCase<T>` from `type-fest`
 
 ## Summary
 
-`tsgo --noEmit` crashes with a goroutine stack overflow when a file contains two generic
-functions that both use recursive `type-fest` mapped types (`CamelCase<T>` and `SnakeCase<T>`)
-as return types, with lodash `transform` used in the body.
+`tsgo` crashes with a goroutine stack overflow when a file contains two generic
+functions with one of them uses the `CamelCase<T>` type from type-fest.
 
-`tsc --noEmit` on the same file exits cleanly with no errors.
+`tsc` on the same file exits cleanly with no errors.
 
 ## Environment
 
 ```
 tsgo:       7.0.0-dev.20260219.1  (@typescript/native-preview)
-typescript: 5.9.3                 (tsc, for comparison)
-type-fest:  4.41.0
-lodash:     4.17.21
+typescript: 6.0.0-beta                 (tsc, for comparison)
+type-fest:  4.38.0
 node:       20.x
 os:         darwin arm64
 ```
@@ -29,10 +27,12 @@ pnpm check:tsgo  # fatal error: stack overflow
 
 ## Expected
 
-`tsgo --noEmit` exits with type errors or 0 — it should not crash.
+`tsgo` exits with type errors or 0 — it should not crash.
 `tsc` handles this file cleanly, emitting no errors.
 
 ## Actual
+
+Full stack trace can be found here: https://gist.github.com/wadjoh/82adc287ab15357812c8e2da247163c3
 
 ```
 runtime: goroutine stack exceeds 1000000000-byte limit
