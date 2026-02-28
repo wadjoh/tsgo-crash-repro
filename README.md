@@ -1,4 +1,4 @@
-# tsgo crash repro: goroutine stack overflow with `CamelCase<T>` + `SnakeCase<T>` from type-fest
+# tsgo crash repro: goroutine stack overflow with recursive transform and `CamelCase<T>` from type-fest
 
 ## Summary
 
